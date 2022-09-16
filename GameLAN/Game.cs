@@ -193,7 +193,30 @@ namespace GameLAN
             if (button9.Text == "")
                 button9.Enabled = true;
         }
+        private void ReceiveMove()
+        {
+            byte[] buffer = new byte[1];
+            sock.Receive(buffer);
+            if (buffer[0] == 1)
+                button1.Text = Opponent.ToString();
+            if (buffer[0] == 2)
+                button2.Text = Opponent.ToString();
+            if (buffer[0] == 3)
+                button3.Text = Opponent.ToString();
+            if (buffer[0] == 4)
+                button4.Text = Opponent.ToString();
+            if (buffer[0] == 5)
+                button5.Text = Opponent.ToString();
+            if (buffer[0] == 6)
+                button6.Text = Opponent.ToString();
+            if (buffer[0] == 7)
+                button7.Text = Opponent.ToString();
+            if (buffer[0] == 8)
+                button8.Text = Opponent.ToString();
+            if (buffer[0] == 9)
+                button9.Text = Opponent.ToString();
 
+        }
 
     }
 }
