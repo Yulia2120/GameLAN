@@ -159,6 +159,7 @@
             this.MinimizeBox = false;
             this.Name = "Game";
             this.Text = "Game";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Game_FormClosing);
             this.ResumeLayout(false);
 
         }

@@ -22,11 +22,46 @@ namespace GameLAN
         public Game(bool isHost, string ip = null)
         {
             InitializeComponent();
-            //MessageReceiver.DoWork += MessageReceiver_DoWork;
+            MessageReceiver.DoWork += MessageReceiver_DoWork;
             CheckForIllegalCrossThreadCalls = false;
+
+
+            if (isHost)
+            {
+                Player = 'X';
+                Opponent = 'O';
+                server = new TcpListener(System.Net.IPAddress.Any, 5732);
+                server.Start();
+                sock = server.AcceptSocket();
+            }
+            else
+            {
+                Player = 'O';
+                Opponent = 'X';
+                try
+                {
+                    client = new TcpClient(ip, 5732);
+                    sock = client.Client;
+                    MessageReceiver.RunWorkerAsync();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    Close();
+                }
+            }
         }
-
-
+        private void MessageReceiver_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (CheckState())
+                return;
+            FreezeBoard();
+            label1.Text = "Opponent's Turn!";
+            ReceiveMove();
+            label1.Text = "Your Trun!";
+            if (!CheckState())
+                UnfreezeBoard();
+        }
         private bool CheckState()
         {
             //Horizontals
@@ -289,6 +324,14 @@ namespace GameLAN
             sock.Send(num);
             button1.Text = Player.ToString();
             MessageReceiver.RunWorkerAsync();
+        }
+
+        private void Game_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageReceiver.WorkerSupportsCancellation = true;
+            MessageReceiver.CancelAsync();
+            if (server != null)
+                server.Stop();
         }
     }
 }
