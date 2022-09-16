@@ -218,5 +218,77 @@ namespace GameLAN
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            byte[] num = { 1 };
+            sock.Send(num);
+            button1.Text = Player.ToString();
+            MessageReceiver.RunWorkerAsync();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            byte[] num = { 2 };
+            sock.Send(num);
+            button1.Text = Player.ToString();
+            MessageReceiver.RunWorkerAsync();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            byte[] num = { 3 };
+            sock.Send(num);
+            button1.Text = Player.ToString();
+            MessageReceiver.RunWorkerAsync();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            byte[] num = { 4 };
+            sock.Send(num);
+            button1.Text = Player.ToString();
+            MessageReceiver.RunWorkerAsync();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            byte[] num = { 5 };
+            sock.Send(num);
+            button1.Text = Player.ToString();
+            MessageReceiver.RunWorkerAsync();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            byte[] num = { 6 };
+            sock.Send(num);
+            button1.Text = Player.ToString();
+            MessageReceiver.RunWorkerAsync();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            byte[] num = { 7 };
+            sock.Send(num);
+            button1.Text = Player.ToString();
+            MessageReceiver.RunWorkerAsync();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            byte[] num = { 8 };
+            sock.Send(num);
+            button1.Text = Player.ToString();
+            MessageReceiver.RunWorkerAsync();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            byte[] num = { 9 };
+            sock.Send(num);
+            button1.Text = Player.ToString();
+            MessageReceiver.RunWorkerAsync();
+        }
     }
 }
