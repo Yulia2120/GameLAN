@@ -60,9 +60,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(47, 34);
+            this.textBox1.Location = new System.Drawing.Point(25, 34);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 20);
+            this.textBox1.Size = new System.Drawing.Size(176, 20);
             this.textBox1.TabIndex = 1;
             // 
             // button1
@@ -93,9 +93,10 @@
             this.ClientSize = new System.Drawing.Size(335, 164);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tic Tac Toe Game";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
