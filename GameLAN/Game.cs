@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GameLAN
@@ -30,7 +24,7 @@ namespace GameLAN
             {
                 Player = 'X';
                 Opponent = 'O';
-                server = new TcpListener(System.Net.IPAddress.Any, 5732);
+                server = new TcpListener(System.Net.IPAddress.Any, 8088);
                 server.Start();
                 sock = server.AcceptSocket();
             }
@@ -40,7 +34,7 @@ namespace GameLAN
                 Opponent = 'X';
                 try
                 {
-                    client = new TcpClient(ip, 5732);
+                    client = new TcpClient(ip, 8088);
                     sock = client.Client;
                     MessageReceiver.RunWorkerAsync();
                 }
