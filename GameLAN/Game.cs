@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
 
@@ -24,7 +25,7 @@ namespace GameLAN
             {
                 Player = 'X';
                 Opponent = 'O';
-                server = new TcpListener(System.Net.IPAddress.Any, 8088);
+                server = new TcpListener(IPAddress.Any, 8088);
                 server.Start();
                 sock = server.AcceptSocket();
             }
